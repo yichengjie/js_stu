@@ -20,4 +20,5 @@ obj.a = obj.a.before(function(){
     console.info('helle world ...') ;
 }) ;
 //注意这里不能直接掉a否则没有任何效果，因为当调用before才会返回一个新的闭包func
+obj.name = 'test001' ;
 obj.a();

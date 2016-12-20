@@ -21,8 +21,13 @@ Chain.prototype.next = function(type,name,addr){
 }
 
 var fn1 = new Chain(function(type,name,addr){
-    console.info('1' + " , type : " ,arguments) ;
-    return nextFlagStr ;
+    var _self = this ;
+    var args = arguments ;
+    setTimeout(function(){
+        _self.next.apply(_self,args) ;
+    },1000) ;
+    //console.info('1' + " , type : " ,arguments) ;
+    //return nextFlagStr ;
 }) ;
 
 var fn2 = new Chain(function(type,name,addr){

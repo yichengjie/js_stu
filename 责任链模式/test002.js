@@ -16,11 +16,11 @@ Chain.prototype.passRequest = function(){
     }
     return ret ;
 }
-Chain.prototype.next = function(type,name,addr){
+Chain.prototype.next = function(){
     return this.successor && this.successor.passRequest.apply(this.successor,arguments) ;
 }
 
-var fn1 = new Chain(function(type,name,addr){
+var fn1 = new Chain(function(){
     var _self = this ;
     var args = arguments ;
     setTimeout(function(){
@@ -30,7 +30,7 @@ var fn1 = new Chain(function(type,name,addr){
     //return nextFlagStr ;
 }) ;
 
-var fn2 = new Chain(function(type,name,addr){
+var fn2 = new Chain(function(){
     console.info('2' + " , type : " ,arguments) ;
     //var ccc = arguments ;
     setTimeout(()=>{
@@ -39,7 +39,7 @@ var fn2 = new Chain(function(type,name,addr){
    // return nextFlagStr ;
 }) ;
 
-var fn3 = new Chain(function(type,name,addr){
+var fn3 = new Chain(function(){
      console.info('3' + " , type : " ,arguments) ;
 }) ;
 fn1.setNextSuccessor(fn2).setNextSuccessor(fn3) ;

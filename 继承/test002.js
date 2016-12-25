@@ -33,6 +33,7 @@ SuperClass.prototype.getName = function () {
 
 function SubClass (name,time) {
     SuperClass.call(this,name) ;
+    //console.info('---- > ' + SubClass.name) ;
     this.time = time ;
 }
 

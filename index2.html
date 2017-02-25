@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="./jquery.js"></script>
+</head>
+<body>
+
+    <p name="a">1</p>
+    <p name="a" class="active">2</p>
+    <p name="a">3</p>
+    <button name ="test" onclick="test(event)">test</button>
+    <button id="elem">test2</button>
+    <script type="text/javascript">
+        function test(event){
+            var target = $(event.target) ;
+            var name = target.attr('name') ;
+            target.addClass('active') ;
+            console.info(name) ;
+
+            var active = $('[name="a"]').filter('.active') ;
+            console.info(active.html()) ;
+            active = null ;
+
+        }
+        $('#elem').on('Aaron', function(event,arg1,arg2) {
+            var target = $(event.target) ;
+            console.info(target.html())
+        });
+        $('#elem').trigger('Aaron',['参数1','参数2'])
+    </script>
+</body>
+</html>
